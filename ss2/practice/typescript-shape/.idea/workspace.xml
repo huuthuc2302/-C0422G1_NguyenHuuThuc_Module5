@@ -2,39 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46a0f0c9-5d61-4b92-9953-ce94399bd6ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../case-study-m5/.idea/case-study-m5.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../case-study-m5/templates/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../case-study-m5/templates/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/.idea/typescript-control-flow-and-loop.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-control-flow-and-loop/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-is-prime/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-is-prime/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-is-prime/.idea/typescript-is-prime.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-is-prime/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-is-prime/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-is-prime/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-is-prime/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-is-prime/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IArea.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/rectangle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shape.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-variable/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-variable/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-variable/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-variable/.idea/typescript-variable.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-variable/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-variable/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-variable/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../typescript-variable/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../abc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../abc.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../keto-1.0.0/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../keto-1.0.0/.idea/keto-1.0.0.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../keto-1.0.0/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../keto-1.0.0/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../keto-1.0.0/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../exercise/sum_fibonacci/.idea/sum_fibonacci.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../typescript-promise/.idea/typescript-promise.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../typescript-is-prime/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../typescript-is-prime/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +37,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../exercise/sum_fibonacci" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="E:\C0422G1_NguyenHuuThuc_module5\C0422G1_NguyenHuuThuc_Module5\ss2\practice\typescript-shape\node_modules\typescript\lib" />
   </component>
@@ -75,10 +58,18 @@
       <option name="presentableId" value="Default" />
       <updated>1663657668397</updated>
       <workItem from="1663657670651" duration="744000" />
+      <workItem from="1663664566853" duration="1585000" />
+      <workItem from="1663731227968" duration="59000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="901" y="167" key="FileChooserDialogImpl" timestamp="1663731286020">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="901" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1663731286020" />
   </component>
 </project>
