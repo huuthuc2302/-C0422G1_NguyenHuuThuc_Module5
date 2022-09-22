@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DISPLAY FACILITY</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+
+</head>
+<body>
+<center>
+    <h1>QUẢN LÝ DỊCH VỤ</h1>
+    <h3>
+        <a class="btn btn-outline-primary" href="@{/facility/add}">Thêm mới dịch vụ</a>
+    </h3>
+</center>
+
+<div class="container ">
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th>Mã dịch vụ</th>
+                <th>Tên dịch vụ</th>
+                <th>Diện tích sử dụng</th>
+                <th>Chi phí thuê</th>
+                <th>Số người tối đa</th>
+                <th>Kiểu thuê</th>
+                <th>Loại dịch vụ</th>
+                <th>Tiêu chuẩn phòng</th>
+                <th>Mô tả tiện nghi</th>
+                <th>Diện tích hồ bơi</th>
+                <th>Số tầng</th>
+                <th>Dịch vụ Free đi kèm</th>
+                <th colspan="2">Chức năng</th>
+            </tr>
+            <tr each="facility : ${listFacility}">
+                <td text="${facility.facilityId}"></td>
+                <td text="${facility.facilityName}"></td>
+                <td text="${facility.facilityArea}"></td>
+                <td text="${facility.facilityCost}"></td>
+                <td text="${facility.facilityMaxPeople}"></td>
+                <td text="${facility.rentType.rentTypeName}"></td>
+                <td text="${facility.facilityType.facilityTypeName}"></td>
+                <td text="${facility.standardRoom}"></td>
+                <td text="${facility.description}"></td>
+                <td text="${facility.poolArea}"></td>
+                <td text="${facility.numberOfFloor}"></td>
+                <td text="${facility.facilityFree}"></td>
+                <td>
+                    <a type="button" class="btn btn-primary"
+                       href="@{/facility/edit(id=${facility.facilityId})}">
+                        Sửa
+                    </a></td>
+                </td>
+                <td>
+                    <button type="button" onclick="showInfoDelete(this.value)"
+                            value="${facility.facilityId} + ',' + ${facility.facilityType.facilityTypeName}"
+                            class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Xoá
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Modal -->
+        <form action="@{/facility/delete}" method="post">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input hidden type="text" name="facilityId" id="deleteId">
+                            <span>Bạn có muốn xóa : </span><span id="deleteName"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Xoá</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <script>
+            function showInfoDelete(name) {
+                let arr = name.split(",")
+                document.getElementById("deleteId").value = arr[0];
+                document.getElementById("deleteName").innerText = arr[1];
+            }
+        </script>
+    </div>
+</div>
+
+<div>
+    <div>
+        <div>
+            <a href="@{/facility(page=${listFacility.number - 1},
+            keyword = ${keywordVal})}"
+               if="${listFacility.hasPrevious()}" class="btn btn-success">
+                Trước
+            </a>
+            <span class="btn btn-primary">
+            <b text="${listFacility.number + 1}"></b>
+            /
+            <b text="${listFacility.totalPages}"></b>
+                </span>
+            <a href="@{/facility(page=${listFacility.number + 1},
+            keyword = ${keywordVal})}"
+               if="${listFacility.hasNext()}" class="btn btn-success">
+                Sau
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="../../static/js/bootstrap.min.js"></script>
+</body>
+</html>

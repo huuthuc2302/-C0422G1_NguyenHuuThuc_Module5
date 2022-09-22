@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DISPLAY CUSTOMER</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+</head>
+<body>
+<center>
+    <h1>DANH SÁCH KHÁCH HÀNG</h1>
+    <h3>
+        <a class="btn btn-outline-primary" href="@{/customers/add}">Thêm mới khách hàng</a>
+    </h3>
+</center>
+
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <form action="@{/customers}" class="d-flex" role="search">
+            <input class="form-control me-2" type="search" name ="keyword" placeholder="Tên khách hàng" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Tìm</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container ">
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th>Mã Khách Hàng</th>
+                <th>Loại khách</th>
+                <th>Họ tên</th>
+                <th>Ngày sinh</th>
+                <th>Giới tính</th>
+                <th>Số CMND</th>
+                <th>Số Điện Thoại</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th colspan="2">Chức năng</th>
+            </tr>
+            <tr each="customer : ${listCustomer}">
+                <td text="${customer.customerId}"></td>
+                <td text="${customer.customerType.customerTypeName}"></td>
+                <td text="${customer.customerName}"></td>
+                <td text="${customer.customerBirth}"></td>
+<!--                <td if="${customer.customerGender} == 0">Nam</td>-->
+<!--                <td if="${customer.customerGender} == 1">Nữ</td>-->
+                <td text="${customer.customerIdCard}"></td>
+                <td text="${customer.customerPhone}"></td>
+                <td text="${customer.customerEmail}"></td>
+                <td text="${customer.customerAddress}"></td>
+                <td>
+                    <a type="button" class="btn btn-primary"
+                       href="@{/customers/edit(id=${customer.customerId})}">
+                        Sửa
+                    </a></td>
+                </td>
+                <td>
+                    <button type="button" onclick="showInfoDelete(this.value)"
+                            value="${customer.customerId} + ',' + ${customer.customerName}"
+                            class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Xoá
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Modal -->
+        <form action="@{/customers/delete}" method="post">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input hidden type="text" name="customerId" id="deleteId">
+                            <span>Bạn có muốn xóa : </span><span id="deleteName"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Xoá</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <script>
+            function showInfoDelete(name) {
+                let arr = name.split(",")
+                document.getElementById("deleteId").value = arr[0];
+                document.getElementById("deleteName").innerText = arr[1];
+            }
+        </script>
+    </div>
+</div>
+
+<div>
+    <div>
+        <div>
+            <a href="@{/customers(page=${listCustomer.number - 1},
+            keyword = ${keywordVal})}"
+               if="${listCustomer.hasPrevious()}" class="btn btn-success">
+                Previous
+            </a>
+            <span class="btn btn-primary">
+            <b text="${listCustomer.number + 1}"></b>
+            /
+            <b text="${listCustomer.totalPages}"></b>
+                </span>
+            <a href="@{/customers(page=${listCustomer.number + 1},
+            keyword = ${keywordVal})}"
+               if="${listCustomer.hasNext()}" class="btn btn-success">
+                Next
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="../../static/js/bootstrap.min.js"></script>
+</body>
+</html>
