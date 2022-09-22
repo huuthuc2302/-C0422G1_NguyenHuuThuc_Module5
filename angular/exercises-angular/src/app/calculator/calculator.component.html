@@ -1,0 +1,19 @@
+<h3>CACULATOR</h3>
+<div>
+  <label>Number a</label>
+  <input type="number" [(ngModel)]="a">
+</div>
+
+<div>
+  <label>Number b</label>
+  <input type="number" [(ngModel)]="b">
+</div>
+
+<div>
+  <button (click)="summation()">+</button>
+  <button (click)="subtraction()">-</button>
+  <button (click)="multiplication()">*</button>
+  <button (click)="division()">/</button>
+</div>
+
+<h4>Result = {{result}}</h4>
