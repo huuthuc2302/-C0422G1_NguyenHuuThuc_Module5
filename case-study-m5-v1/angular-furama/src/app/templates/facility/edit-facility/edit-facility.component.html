@@ -1,0 +1,70 @@
+<div class="container w-50 mt-5 p-2 bg-success" style="border: 1px solid grey; border-radius: 15px">
+  <h3 align="center">CHỈNH SỬA DỊCH VỤ</h3>
+
+  <form class="row g-3 text-center" action="@{/facility/update}" object="${facilityDto}"
+        method="post" novalidate="novalidate">
+    <input type="text" field="*{facilityId}" hidden>
+    <div class="col-md-12">
+      <label for="name" class="form-label">Tên dịch vụ</label>
+      <input type="text" class="form-control" id="name" field="*{facilityName}"/>
+    </div>
+
+    <div class="col-md-12">
+      <label for="area" class="form-label">Diện tích sử dụng</label>
+      <input type="text" class="form-control" id="area" field="*{facilityArea}"/>
+    </div>
+
+    <div class="col-md-12">
+      <label for="cost" class="form-label">Chi phí thuê</label>
+      <input type="text" class="form-control" id="cost" field="*{facilityCost}"/>
+    </div>
+
+    <div class="col-md-12">
+      <label for="people" class="form-label">Số người tối đa</label>
+      <input type="text" class="form-control" id="people" field="*{facilityMaxPeople}"/>
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Kiểu thuê</label>
+      <select class="form-select" aria-label="Default select example" field="*{rentType}">
+        <option each="item : ${rentTypeList}" text="${item.rentTypeName}" value="${item.rentTypeId}">Chọn kiểu thuê</option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Loại dịch vụ</label>
+      <select class="form-select" aria-label="Default select example" field="*{facilityType}">
+        <option each="item : ${facilityTypeList}" text="${item.facilityTypeName}" value="${item.facilityTypeId}">Chọn loại dịch vụ</option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <label for="room" class="form-label">Tiêu chuẩn phòng</label>
+      <input type="text" class="form-control" id="room" field="*{standardRoom}"/>
+    </div>
+
+    <div class="col-md-12">
+      <label for="description" class="form-label">Mô tả tiện nghi</label>
+      <input type="text" class="form-control" id="description" field="*{description}"/>
+    </div>
+
+    <div class="col-md-12">
+      <label for="pool_area" class="form-label">Diện tích hồ bơi</label>
+      <input type="text" class="form-control" id="pool_area" field="*{poolArea}"/>
+    </div>
+
+    <div class="col-md-12">
+      <label for="floor" class="form-label">Số tầng</label>
+      <input type="text" class="form-control" id="floor" field="*{numberOfFloor}"/>
+    </div>
+
+    <div class="col-md-12">
+      <label for="free" class="form-label">Dịch vụ Free đi kèm</label>
+      <input type="text" class="form-control" id="free" field="*{facilityFree}"/>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Lưu</button>
+    </div>
+  </form>
+</div>

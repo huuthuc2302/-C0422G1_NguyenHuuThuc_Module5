@@ -1,0 +1,104 @@
+<div align="center">
+  <h1>DANH SÁCH HỢP ĐỒNG</h1>
+  <h3>
+    <a class="btn btn-outline-primary" href="@{/contract/create}">Thêm mới hợp đồng</a>
+  </h3>
+</div>
+
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <form action="@{/contract}" class="d-flex" role="search">
+      <input class="form-control me-2" type="search" name="keyword" placeholder="Tên khách hàng" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Tìm</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container ">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Dịch Vụ</th>
+        <th>Khách hàng</th>
+        <th>Ngày bắt đầu</th>
+        <th>Ngày kết thúc</th>
+        <th>Tiền đặt cọc</th>
+        <th colspan="2">Các dịch vụ đi kèm</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr each="contracts, contractStart : ${listContract}">
+        <th scope="row" text="${contractStart.count}"></th>
+        <td text="${contracts.facility.facilityName}">Villa Beach Front</td>
+        <td text="${contracts.customer.customerName}">Trương Đình Nghệ</td>
+        <td text="${contracts.startDate}">2020-07-14</td>
+        <td text="${contracts.endDate}">2020-07-21</td>
+        <td text="${contracts.deposit}">500000</td>
+        <td>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  attr="onclick=|infoCreateContractDetail('${contracts.contractId}')|">
+            +
+          </button>
+        </td>
+        <td>
+          <a href="|#listContractDetailModal${contracts.contractId}|" data-toggle="modal">
+            <button type="button" class="btn btn-primary">
+              Danh sách các dịch vụ đi kèm
+            </button>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <form action="/contract/createContractDetail" method="post" object="${contractDetail}">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tạo hợp đồng chi tiết</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Mã hợp đồng</label>
+            <input readonly id="contractId" field="*{contract}" type="text" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tên dịch vụ đi kèm</label>
+            <select field="*{attachFacility}" class="form-select">
+              <option value="">Chọn dịch vụ đi kèm</option>
+              <option each="attachFacilities : ${attachFacilityList}"
+                      value="${attachFacilities.attachFacilityId}"
+                      text="${attachFacilities.attachFacilityName} + ' - giá: ' + ${attachFacilities.cost}"></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Số lượng</label>
+            <input type="text" field="*{quantity}" class="form-control"/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ bỏ</button>
+          <button type="button" class="btn btn-primary">Tạo mới</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function infoCreateContractDetail(id) {
+    document.getElementById("contractId").value = id;
+  }
+</script>

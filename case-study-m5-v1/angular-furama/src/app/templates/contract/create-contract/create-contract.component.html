@@ -1,0 +1,62 @@
+<div class="container w-50 mt-5 p-2 bg-success" style="border: 1px solid grey; border-radius: 15px">
+  <div class="row w-50 mx-auto">
+    <div class="col-lg-12">
+      <h2 style="text-align: center">THÊM MỚI HỢP ĐỒNG</h2>
+      <form action="/contract/create" method="post" object="${contractDto}">
+        <div class="mb-2">
+          <label class="form-label">Ngày bắt đầu</label>
+          <input type="date" field="*{startDate}" class="form-control"/>
+          <div class="mb-4 text-danger" if="${#fields.hasErrors('startDate')}" errors="*{startDate}"></div>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Ngày kết thúc</label>
+          <input type="date" field="*{endDate}" class="form-control"/>
+          <div class="mb-4 text-danger" if="${#fields.hasErrors('endDate')}" errors="*{endDate}"></div>
+
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Số tiền cọc trước</label>
+          <input type="text" field="*{deposit}" class="form-control"/>
+          <div class="mb-4 text-danger" if="${#fields.hasErrors('deposit')}" errors="*{deposit}"></div>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Tên nhân viên</label>
+          <select field="*{employee}" class="form-select">
+            <option value="">Chọn nhân viên</option>
+            <option each="employees : ${employeeList}" value="${employees.employeeId}"
+                    text="${employees.employeeName}"></option>
+          </select>
+          <div class="mb-4 text-danger" if="${#fields.hasErrors('employee')}" errors="*{employee}"></div>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Khách hàng</label>
+          <select field="*{customer}" class="form-select">
+            <option value="">Chọn khách hàng</option>
+            <option each="customers : ${customerList}" value="${customers.customerId}"
+                    text="${customers.customerName}"></option>
+          </select>
+          <div class="mb-4 text-danger" if="${#fields.hasErrors('customer')}" errors="*{customer}"></div>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Dịch vụ</label>
+          <select field="*{facility}" class="form-select">
+            <option value="">Chọn dịch vụ</option>
+            <option each="facilities : ${facilityList}" value="${facilities.facilityId}"
+                    text="${facilities.facilityName}"></option>
+          </select>
+          <div class="mb-4 text-danger" if="${#fields.hasErrors('facility')}" errors="*{facility}"></div>
+        </div>
+
+        <div style="text-align: center">
+          <a href="/contract"><input class="btn btn-primary" type="button" value="Quay lại"></a>
+          <button type="submit" class="btn btn-primary">Lưu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
