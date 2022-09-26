@@ -11,6 +11,10 @@ import { LikeComponent } from './hackernews-app/like/like.component';
 import {FormsModule} from "@angular/forms";
 import { NavbarComponent } from './hackernews-app/navbar/navbar.component';
 import { FooterComponent } from './hackernews-app/footer/footer.component';
+import { NameCardComponent } from './ss5/practice/angular-name-card/name-card/name-card.component';
+import { ProgressBarComponent } from './ss5/practice/angular-progress-bar/progress-bar/progress-bar.component';
+import { RatingBarComponent } from './ss5/exercise/angular-rating-bar/rating-bar/rating-bar.component';
+import { CountdownTimerComponent } from './ss5/exercise/angular-countdown-timer-app/countdown-timer/countdown-timer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { FooterComponent } from './hackernews-app/footer/footer.component';
     ArticleComponent,
     LikeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NameCardComponent,
+    ProgressBarComponent,
+    RatingBarComponent,
+    CountdownTimerComponent
   ],
   imports: [
     BrowserModule,
