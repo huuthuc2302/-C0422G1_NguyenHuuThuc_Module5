@@ -8,13 +8,16 @@ import { AngularColorPickerAppComponent } from './angular-color-picker-app/angul
 
 import { ArticleComponent } from './hackernews-app/article/article.component';
 import { LikeComponent } from './hackernews-app/like/like.component';
-import {FormsModule} from "@angular/forms";
 import { NavbarComponent } from './hackernews-app/navbar/navbar.component';
 import { FooterComponent } from './hackernews-app/footer/footer.component';
 import { NameCardComponent } from './ss5/practice/angular-name-card/name-card/name-card.component';
 import { ProgressBarComponent } from './ss5/practice/angular-progress-bar/progress-bar/progress-bar.component';
 import { RatingBarComponent } from './ss5/exercise/angular-rating-bar/rating-bar/rating-bar.component';
 import { CountdownTimerComponent } from './ss5/exercise/angular-countdown-timer-app/countdown-timer/countdown-timer.component';
+import { TodoComponent } from './ss6/practice/angular-name-card/todo/todo.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegisterComponent } from './ss6/exercise/angular-register-form/register/register.component';
+import { LoginComponent } from './ss6/exercise/angular-login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +31,16 @@ import { CountdownTimerComponent } from './ss5/exercise/angular-countdown-timer-
     NameCardComponent,
     ProgressBarComponent,
     RatingBarComponent,
-    CountdownTimerComponent
+    CountdownTimerComponent,
+    TodoComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

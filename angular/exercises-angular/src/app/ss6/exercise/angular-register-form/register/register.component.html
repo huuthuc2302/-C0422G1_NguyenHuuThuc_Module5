@@ -1,0 +1,66 @@
+<form [formGroup]="registerForm">
+
+  <p>
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" formControlName="email">
+  </p>
+  <div style="color: red"
+    *ngIf="!registerForm.controls.email?.valid && (registerForm.controls.email?.dirty
+    ||registerForm.controls.email?.touched)">
+    Email không đúng định dạng
+  </div>
+
+  <p>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" formControlName="password">
+  </p>
+  <div style="color: red"
+        *ngIf="registerForm.hasError('required', 'password')
+        &&registerForm.get('password').dirty">Mật khẩu là bắt buộc
+  </div>
+
+  <p>
+    <label for="confirmPassword">Comfirm password</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword">
+  </p>
+
+<!--  <div style="color: red"-->
+<!--       *ngIf="passwordMatchError-->
+<!--        && registerForm.get('confirmPassword').dirty">Mật khẩu không khớp-->
+<!--  </div>-->
+
+
+  <p>
+    <label for="country">Country</label>
+    <select name="country" id="country" formControlName="country">
+      <option value="Vietnam">Việt Nam</option>
+      <option value="Japan">Nhật Bản</option>
+      <option value="China">Trung Quốc</option>
+    </select>
+  </p>
+
+  <p>
+    <label for="email">Age</label>
+    <input type="number" id="age" name="age" formControlName="age">
+  </p>
+
+  <p>
+    <label>Gender</label>
+    <input type="radio" name="gender" value="Male" formControlName="gender">Male
+    <input type="radio" name="gender" value="Female" formControlName="gender">Female
+  </p>
+
+
+
+  <p>
+    <label for="phone">Phone</label>
+    <input type="number" id="phone" name="phone" formControlName="phone">
+  </p>
+  <div style="color: red"
+       *ngIf="!registerForm.controls.phone?.valid && (registerForm.controls.phone?.dirty
+    ||registerForm.controls.phone?.touched)">
+    Số điện thoại không đúng định dạng
+  </div>
+
+  <button [disabled]="!registerForm.valid" type="submit">Save</button>
+</form>
