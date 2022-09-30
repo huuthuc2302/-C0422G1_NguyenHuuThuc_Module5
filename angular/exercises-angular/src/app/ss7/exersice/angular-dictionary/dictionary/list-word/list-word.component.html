@@ -1,0 +1,12 @@
+<h1>Danh sách từ điển</h1>
+<table>
+  <tr>
+    <td>STT</td>
+    <td>Từ khóa</td>
+  </tr>
+  <tr *ngFor="let word of words; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{word.keyword}}</td>
+    <td><a routerLink="/dictionary/detail/{{word.keyword}}">Detail</a></td>
+  </tr>
+</table>

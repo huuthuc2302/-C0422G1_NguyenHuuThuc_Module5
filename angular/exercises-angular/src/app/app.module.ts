@@ -18,6 +18,15 @@ import { TodoComponent } from './ss6/practice/angular-name-card/todo/todo.compon
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RegisterComponent } from './ss6/exercise/angular-register-form/register/register.component';
 import { LoginComponent } from './ss6/exercise/angular-login/login/login.component';
+import { TimelinesComponent } from './ss7/practice/angular-timelines-app/timelines/timelines.component';
+import { YoutubePlaylistComponent } from './ss7/practice/angular-product-management/youtube-playlist/youtube-playlist.component';
+import { YoutubePlayerComponent } from './ss7/practice/angular-product-management/youtube-player/youtube-player.component';
+import { ProductListComponent } from './ss7/practice/angular-product/product/product-list/product-list.component';
+import { ProductCreateComponent } from './ss7/practice/angular-product/product/product-create/product-create.component';
+import { DictionaryDetailComponent } from './ss7/exersice/angular-dictionary/dictionary/dictionary-detail/dictionary-detail.component';
+import { ListWordComponent } from './ss7/exersice/angular-dictionary/dictionary/list-word/list-word.component';
+import { ProductEditComponent } from './ss7/practice/angular-product/product/product-edit/product-edit.component';
+import { ProductDeleteComponent } from './ss7/practice/angular-product/product/product-delete/product-delete.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +43,16 @@ import { LoginComponent } from './ss6/exercise/angular-login/login/login.compone
     CountdownTimerComponent,
     TodoComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TimelinesComponent,
+    YoutubePlaylistComponent,
+    YoutubePlayerComponent,
+    ProductListComponent,
+    ProductCreateComponent,
+    DictionaryDetailComponent,
+    ListWordComponent,
+    ProductEditComponent,
+    ProductDeleteComponent
   ],
   imports: [
     BrowserModule,
