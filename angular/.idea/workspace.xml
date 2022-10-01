@@ -3,18 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="0178efad-673d-4643-90af-0e281aa6ed6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercises-angular/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/exercises-angular/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercises-angular/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/exercises-angular/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exercises-angular/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exercises-angular/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exercises-angular/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercises-angular/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exercises-angular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exercises-angular/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercises-angular/src/app/ss6/practice/angular-name-card/todo/todo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercises-angular/src/app/ss6/practice/angular-name-card/todo/todo.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercises-angular/src/app/ss6/practice/angular-name-card/todo/todo.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercises-angular/src/app/ss6/practice/angular-name-card/todo/todo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exercises-angular/src/app/ss6/practice/angular-name-card/todo/todo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercises-angular/src/app/ss7/exersice/angular-dictionary/dictionary/dictionary-detail/dictionary-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exercises-angular/src/app/ss7/exersice/angular-dictionary/dictionary/dictionary-detail/dictionary-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercises-angular/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exercises-angular/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/create-customer/create-customer.component.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/display-customer/display-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/display-customer/display-customer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/display-customer/display-customer.component.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/display-customer/display-customer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/display-customer/display-customer.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/edit-customer/edit-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/edit-customer/edit-customer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/edit-customer/edit-customer.component.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/edit-customer/edit-customer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/app/templates/customer/edit-customer/edit-customer.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v1/angular-furama/src/environments/environment.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../case-study-m5-v2/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-m5-v2/contact.html" afterDir="false" />
@@ -84,7 +90,7 @@
       <workItem from="1663914910118" duration="1158000" />
       <workItem from="1664164191145" duration="4136000" />
       <workItem from="1664177483918" duration="247000" />
-      <workItem from="1664415665386" duration="34493000" />
+      <workItem from="1664415665386" duration="47879000" />
     </task>
     <servers />
   </component>

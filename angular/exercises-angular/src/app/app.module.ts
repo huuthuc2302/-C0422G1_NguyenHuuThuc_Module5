@@ -27,6 +27,11 @@ import { DictionaryDetailComponent } from './ss7/exersice/angular-dictionary/dic
 import { ListWordComponent } from './ss7/exersice/angular-dictionary/dictionary/list-word/list-word.component';
 import { ProductEditComponent } from './ss7/practice/angular-product/product/product-edit/product-edit.component';
 import { ProductDeleteComponent } from './ss7/practice/angular-product/product/product-delete/product-delete.component';
+import {HttpClientModule} from "@angular/common/http";
+import { CategoryCreateComponent } from './ss7/practice/angular-product/category/category-create/category-create.component';
+import { CategoryDeleteComponent } from './ss7/practice/angular-product/category/category-delete/category-delete.component';
+import { CategoryEditComponent } from './ss7/practice/angular-product/category/category-edit/category-edit.component';
+import { CategoryListComponent } from './ss7/practice/angular-product/category/category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -52,13 +57,18 @@ import { ProductDeleteComponent } from './ss7/practice/angular-product/product/p
     DictionaryDetailComponent,
     ListWordComponent,
     ProductEditComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    CategoryCreateComponent,
+    CategoryDeleteComponent,
+    CategoryEditComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
