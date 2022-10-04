@@ -1,0 +1,123 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "customerName": "Nguyễn Hữu Thức",
+      "dayOfBirth": "05-01-1996",
+      "idCard": "201757575",
+      "customerPhone": "0936363636",
+      "customerEmail": "thuc@gmail.com",
+      "customerAddress": "149 Lê Đình Lý",
+      "customerType": {
+        "id": 1,
+        "customerTypeName": "Platinum"
+      }
+    },
+    {
+      "customerName": "TuấnNC",
+      "dayOfBirth": "1995-01-01",
+      "idCard": "201656565",
+      "customerPhone": "0343434343",
+      "customerEmail": "tuannc@gmail.com",
+      "customerAddress": "01 Ngô Thị Nhậm",
+      "customerType": {
+        "id": 2,
+        "customerTypeName": "Gold"
+      },
+      "id": 3
+    },
+    {
+      "customerName": "VinhVN",
+      "dayOfBirth": "1998-01-01",
+      "idCard": "202454545",
+      "customerPhone": "0955686868",
+      "customerEmail": "nhuvinh@gmail.com",
+      "customerAddress": "143 Phạm Như Xương",
+      "customerType": {
+        "id": 1,
+        "customerTypeName": "Platinum"
+      },
+      "id": 4
+    }
+  ],
+  "customerTypes": [
+    {
+      "id": 1,
+      "customerTypeName": "Platinum"
+    },
+    {
+      "id": 2,
+      "customerTypeName": "Gold"
+    },
+    {
+      "id": 3,
+      "customerTypeName": "Silver"
+    },
+    {
+      "id": 4,
+      "customerTypeName": "Member"
+    }
+  ],
+  "facility": [
+    {
+      "id": 1,
+      "name": "Villa Beach Front",
+      "area": 25000,
+      "cost": 10000000,
+      "maxPeople": 10,
+      "standardRoom": "Vip",
+      "descriptionOtherConvenience": "Có hồ bơi",
+      "poolArea": 500,
+      "numberOfFloors": 4,
+      "facilityFree": "Karaoke",
+      "rentType": {
+        "id": 1,
+        "name": "Year"
+      },
+      "facilityType": {
+        "id": 1,
+        "name": "Villa"
+      }
+    },
+    {
+      "id": 2,
+      "name": "House Princess 01",
+      "area": 25000,
+      "cost": 10000000,
+      "maxPeople": 10,
+      "standardRoom": "Vip",
+      "descriptionOtherConvenience": "Có hồ bơi",
+      "poolArea": 500,
+      "numberOfFloors": 4,
+      "facilityFree": "Massage",
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "facilityType": {
+        "id": 2,
+        "name": "House"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Room Twin 01",
+      "area": 5000,
+      "cost": 1000000,
+      "maxPeople": 3,
+      "standardRoom": "Classic",
+      "descriptionOtherConvenience": "Có Wifi, nước nóng",
+      "poolArea": 0,
+      "numberOfFloors": 4,
+      "facilityFree": null,
+      "rentType": {
+        "id": 3,
+        "name": "Day"
+      },
+      "facilityType": {
+        "id": 2,
+        "name": "House"
+      }
+    }
+  ]
+}

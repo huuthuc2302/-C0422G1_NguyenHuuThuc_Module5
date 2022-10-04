@@ -1,36 +1,48 @@
+<div>
+  <nav class="navbar navbar-light bg-light">
+    <img class="ms-5" src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png" alt="" width="60" height="80">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+
+      </a>
+      <span>Nguyễn Hữu Thức</span>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top">
+    <div class="container-fluid ">
+      <a class="navbar-brand font-weight-bold text-white" routerLink="">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="nav-link  font-weight-bold text-white" >Employee</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold text-white " routerLink="/customer/list">Customer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold text-white" routerLink="/facility">Facility</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold text-white" >Contract</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light border-3" type="submit">Search</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
 <div class="container-fluid">
-
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="../../static/img/carousel_image_1.png" class="d-block w-100"  alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="../../static/img/carousel_image_2.png" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="../../static/img/carousel_image_3.jpg" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-
   <div class="card mb-3 ">
     <div class="row g-0">
       <div class="col-md-5">
-        <iframe height="370px" width="100%" src="https://www.youtube.com/embed/IjlT_4mvd-c" --%>
+        <iframe height="370px" width="100%" src="https://www.youtube.com/embed/IjlT_4mvd-c">
           title="The Furama Resort DaNang - Couples Corporate" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
@@ -62,3 +74,10 @@
     </div>
   </div>
 </div>
+<footer class="bg-success text-center text-lg-start mt-5">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <a class="nav-link font-weight-bold text-white">
+      © 2018 Furama Resort Danang.
+    </a>
+  </div>
+</footer>

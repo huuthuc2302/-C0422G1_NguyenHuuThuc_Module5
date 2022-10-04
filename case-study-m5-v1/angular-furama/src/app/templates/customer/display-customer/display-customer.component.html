@@ -1,18 +1,26 @@
+<app-header></app-header>
 <div align="center">
   <h1>DANH SÁCH KHÁCH HÀNG</h1>
   <h3>
-    <a class="btn btn-outline-primary" href="@{/customers/add}">Thêm mới khách hàng</a>
+    <button type="button" class="btn btn-outline-primary" routerLink="/customer/create">
+      Thêm mới khách hàng
+    </button>
   </h3>
 </div>
 
-<nav class="navbar bg-light">
-  <div class="container-fluid">
-    <form action="@{/customers}" class="d-flex" role="search">
-      <input class="form-control me-2" type="search" name ="keyword" placeholder="Tên khách hàng" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Tìm</button>
-    </form>
-  </div>
-</nav>
+<!--  <form class="mb-3" style="position: relative" [formGroup]="searchForm" (ngSubmit)="searchCustomer()">-->
+<!--    <div class="row">-->
+<!--      <div class="col-3">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Tên Khách Hàng" aria-label="Search" formControlName="nameSearch" style="border-bottom-color: unset;">-->
+<!--      </div>-->
+<!--      <div class="col-3">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Số chứng minh" aria-label="Search" formControlName="searchIdCard" style="border-bottom-color: unset;">-->
+<!--      </div>-->
+<!--      <div class="col-2">-->
+<!--        <button class="btn btn-outline-primary" type="submit">Tìm Kiếm</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </form>-->
 
 <div class="container ">
   <div class="row">
@@ -23,7 +31,6 @@
         <th>Loại khách</th>
         <th>Họ tên</th>
         <th>Ngày sinh</th>
-        <th>Giới tính</th>
         <th>Số CMND</th>
         <th>Số Điện Thoại</th>
         <th>Email</th>
@@ -32,27 +39,24 @@
       </tr>
       </thead>
       <tbody>
-      <tr each="customer : ${listCustomer}">
-        <td>1</td>
-        <td>Gold</td>
-        <td>Nguyễn Hữu Thức</td>
-        <td>05/01/1996</td>
-        <td if="${customer.customerGender} == 0">Nam</td>
-        <!--                <td if="${customer.customerGender} == 1">Nữ</td>-->
-        <td>201757575</td>
-        <td>0932325056</td>
-        <td>thuc@gmail.com</td>
-        <td>295 Nguyễn Tất Thành</td>
+      <tr *ngFor="let customer of customers | paginate: { itemsPerPage: 1, currentPage: p }; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{customer.customerType.customerTypeName}}</td>
+        <td>{{customer.customerName}}</td>
+        <td>{{customer.dayOfBirth}}</td>
+        <td>{{customer.idCard}}</td>
+        <td>{{customer.customerPhone}}</td>
+        <td>{{customer.customerEmail}}</td>
+        <td>{{customer.customerAddress}}</td>
         <td>
-          <a type="button" class="btn btn-primary"
-             href="@{/customers/edit(id=${customer.customerId})}">
+          <a routerLink="/customer/edit/{{customer.id}}" type="button" class="btn btn-primary">
             Sửa
           </a>
         </td>
         <td>
-          <button type="button" onclick="showInfoDelete(this.value)"
-                  value="${customer.customerId} + ',' + ${customer.customerName}"
-                  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn btn-danger"
+                  (click)="deleteCustomer(customer)"
+                  data-bs-toggle="modal" data-bs-target="#deleteModal">
             Xoá
           </button>
         </td>
@@ -60,34 +64,29 @@
       </tbody>
     </table>
 
-    <!-- Modal -->
-    <form action="@{/customers/delete}" method="post">
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-           aria-hidden="true">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<!--    Start Delete modal-->
+      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <input hidden type="text" name="customerId" id="deleteId">
-              <span>Bạn có muốn xóa : </span><span id="deleteName"></span>
+              Bạn có muốn xóa khách hàng <span style="font-weight: bold; color: red">{{deleteName}}</span> không ?
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-              <button type="submit" class="btn btn-primary">Xoá</button>
+              <button type="button" class="btn btn-primary" (click)="delete(deleteId)" data-bs-dismiss="modal">Xoá</button>
             </div>
           </div>
         </div>
       </div>
-    </form>
-    <script>
-      function showInfoDelete(name) {
-        let arr = name.split(",")
-        document.getElementById("deleteId").value = arr[0];
-        document.getElementById("deleteName").innerText = arr[1];
-      }
-    </script>
+<!--    End Delete modal-->
+
   </div>
 </div>
+<app-footer></app-footer>

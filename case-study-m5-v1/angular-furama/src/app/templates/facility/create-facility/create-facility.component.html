@@ -1,111 +1,133 @@
+<app-header></app-header>
 <div class="container w-50 mt-5 p-2 bg-success" style="border: 1px solid grey; border-radius: 15px">
   <h3 align="center">THÊM MỚI DỊCH VỤ</h3>
 
-  <form class="row g-3 text-center" action="" object=""
-        method="post" novalidate="novalidate">
-
+  <form class="row g-3 text-center" [formGroup]="facilityForm" (ngSubmit)="submit()">
     <div class="col-md-12">
       <label class="form-label">Loại dịch vụ</label>
-      <select name="serviceType" class="form-select" onchange="showFacilityInput(this)" id="type_facility"
-              field="">
-        <option each="" text=""
-                value="">Chọn loại dịch vụ</option>
+      <select class="form-select" aria-label="Default select example" name="facilityType" formControlName="facilityType"
+              (change)="selFacility($event)">
+        <option *ngFor="let item of facilityTypeList" [ngValue]="item.id">{{item.name}}</option>
       </select>
-    </div>
-
-    <div class="col-md-12">
-      <label for="name" class="form-label">Tên dịch vụ</label>
-      <input type="text" class="form-control" id="name" field=""/>
-    </div>
-
-    <div class="col-md-12">
-      <label for="area" class="form-label">Diện tích sử dụng</label>
-      <input type="text" class="form-control" id="area" field=""/>
-    </div>
-
-    <div class="col-md-12">
-      <label for="cost" class="form-label">Chi phí thuê</label>
-      <input type="text" class="form-control" id="cost" field=""/>
-    </div>
-
-    <div class="col-md-12">
-      <label for="people" class="form-label">Số người tối đa</label>
-      <input type="text" class="form-control" id="people" field=""/>
     </div>
 
     <div class="col-md-12">
       <label class="form-label">Kiểu thuê</label>
-      <select class="form-select" aria-label="Default select example" field="">
-        <option each="" text="" value="">Chọn kiểu thuê</option>
+      <select class="form-select" aria-label="Default select example" name="facilityType" formControlName="rentType">
+        <option *ngFor="let item of rentTypeList" [ngValue]="item.id">{{item.name}}</option>
       </select>
     </div>
 
-    <div class="col-md-12" id="dv1" style="display: none">
-      <label for="room" class="form-label">Tiêu chuẩn phòng</label>
-      <input type="text" class="form-control" id="room" field="" value="null"/>
+    <div class="col-md-12">
+      <label class="form-label">Tên dịch vụ</label>
+      <input type="text" class="form-control" name="name" formControlName="name">
+
+      <div class="text-danger" *ngFor="let validation of validationMessages.name">
+        <div class="error-message"
+             *ngIf="facilityForm.get('name').hasError(validation.type) && (facilityForm.get('name').dirty || facilityForm.get('name').touched)">
+          {{validation.message}}</div>
+      </div>
     </div>
 
-    <div class="col-md-12" id="dv2" style="display: none">
-      <label for="description" class="form-label">Mô tả tiện nghi</label>
-      <input type="text" class="form-control" id="description" field="" value="null"/>
+    <div class="col-md-12">
+      <label class="form-label">Diện tích sử dụng</label>
+      <input type="text" class="form-control" name="area" formControlName="area">
+
+      <div class="text-danger" *ngFor="let validation of validationMessages.area">
+        <div class="error-message"
+             *ngIf="facilityForm.get('area').hasError(validation.type) && (facilityForm.get('area').dirty || facilityForm.get('area').touched)">
+          {{validation.message}}</div>
+      </div>
     </div>
 
-    <div class="col-md-12" id="dv4" style="display: none">
-      <label for="pool_area" class="form-label">Diện tích hồ bơi</label>
-      <input type="text" class="form-control" id="pool_area" field="" value="0"/>
+    <div class="col-md-12">
+      <label class="form-label">Chi phí thuê</label>
+      <input type="text" class="form-control" name="cost" formControlName="cost">
+
+      <div class="text-danger" *ngFor="let validation of validationMessages.cost">
+        <div class="error-message"
+             *ngIf="facilityForm.get('cost').hasError(validation.type) && (facilityForm.get('cost').dirty || facilityForm.get('cost').touched)">
+          {{validation.message}}</div>
+      </div>
     </div>
 
-    <div class="col-md-12" id="dv3" style="display: none">
-      <label for="floor" class="form-label">Số tầng</label>
-      <input type="text" class="form-control" id="floor" field="" value="0"/>
+    <div class="col-md-12">
+      <label class="form-label">Số người tối đa</label>
+      <input type="text" class="form-control" name="maxPeople" formControlName="maxPeople">
+
+      <div class="text-danger" *ngFor="let validation of validationMessages.maxPeople">
+        <div class="error-message"
+             *ngIf="facilityForm.get('maxPeople').hasError(validation.type) && (facilityForm.get('maxPeople').dirty || facilityForm.get('maxPeople').touched)">
+          {{validation.message}}</div>
+      </div>
     </div>
 
-    <div class="col-md-12" id="dv5" style="display: none">
-      <label for="free" class="form-label">Dịch vụ Free đi kèm</label>
-      <input type="text" class="form-control" id="free" field="" value="null"/>
+    <div id="villa" [hidden]="facilityTypeId === '2: 3'">
+      <div class="col-md-12">
+        <label class="form-label">Loại Phòng</label>
+        <input type="text" class="form-control" name="standardRoom" formControlName="standardRoom">
+
+        <div class="text-danger" *ngFor="let validation of validationMessages.standardRoom">
+          <div class="error-message"
+               *ngIf="facilityForm.get('standardRoom').hasError(validation.type) && (facilityForm.get('standardRoom').dirty || facilityForm.get('standardRoom').touched)">
+            {{validation.message}}</div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <label class="form-label">Mô tả tiện nghi</label>
+        <input type="text" class="form-control" name="descriptionOtherConvenience" formControlName="descriptionOtherConvenience">
+
+        <div class="text-danger" *ngFor="let validation of validationMessages.descriptionOtherConvenience">
+          <div class="error-message"
+               *ngIf="facilityForm.get('descriptionOtherConvenience').hasError(validation.type) && (facilityForm.get('descriptionOtherConvenience').dirty || facilityForm.get('descriptionOtherConvenience').touched)">
+            {{validation.message}}</div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <label class="form-label">Số tầng</label>
+        <input type="text" class="form-control" name="numberOfFloors" formControlName="numberOfFloors">
+
+        <div class="text-danger" *ngFor="let validation of validationMessages.numberOfFloors">
+          <div class="error-message"
+               *ngIf="facilityForm.get('numberOfFloors').hasError(validation.type) && (facilityForm.get('numberOfFloors').dirty || facilityForm.get('numberOfFloors').touched)">
+            {{validation.message}}</div>
+          <span *ngIf="facilityForm.get('numberOfFloors').hasError('checkNumber')">Số tầng phải là số nguyên dương</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="house" [hidden]="facilityTypeId === '2: 3' || facilityTypeId === '1: 2'">
+      <div class="col-12">
+        <label class="form-label">Diện tích hồ bơi</label>
+        <input type="text" class="form-control" name="poolArea" formControlName="poolArea">
+
+        <div class="text-danger" *ngFor="let validation of validationMessages.poolArea">
+          <div class="error-message"
+               *ngIf="facilityForm.get('poolArea').hasError(validation.type) && (facilityForm.get('poolArea').dirty || facilityForm.get('poolArea').touched)">
+            {{validation.message}}</div>
+          <span *ngIf="facilityForm.get('poolArea').hasError('checkNumber')">Diện tích hồ bơi phải là số nguyên dương</span>
+        </div>
+      </div>
+    </div>
+
+    <div [hidden]="facilityTypeId === '1: 2' || facilityTypeId === '0: 1'">
+      <div class="col-12">
+        <label class="form-label">Dịch Vụ Miễn Phí</label>
+        <input type="text" class="form-control" name="facilityFree" formControlName="facilityFree">
+
+        <div class="text-danger" *ngFor="let validation of validationMessages.facilityFree">
+          <div class="error-message"
+               *ngIf="facilityForm.get('facilityFree').hasError(validation.type) && (facilityForm.get('facilityFree').dirty || facilityForm.get('facilityFree').touched)">
+            {{validation.message}}</div>
+        </div>
+      </div>
     </div>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Xác nhận</button>
+      <button [disabled]="facilityForm.invalid" class="btn btn-primary">Thêm mới</button>
     </div>
   </form>
 </div>
-
-<!--<script>-->
-<!--  function showFacilityInput() {-->
-<!--    let type = document.getElementById("type_facility").value;-->
-<!--    switch (type) {-->
-<!--      case 'None':-->
-<!--        document.getElementById("dv1").style.display="none";-->
-<!--        document.getElementById("dv2").style.display="none";-->
-<!--        document.getElementById("dv3").style.display="none";-->
-<!--        document.getElementById("dv4").style.display="none";-->
-<!--        document.getElementById("dv5").style.display="none";-->
-<!--        break;-->
-<!--      case "1":-->
-<!--        // "Villa"-->
-<!--        document.getElementById("dv1").style.display="block";-->
-<!--        document.getElementById("dv2").style.display="block";-->
-<!--        document.getElementById("dv3").style.display="block";-->
-<!--        document.getElementById("dv4").style.display="block";-->
-<!--        document.getElementById("dv5").style.display="none";-->
-<!--        break;-->
-<!--      case "2":-->
-<!--        // "House":-->
-<!--        document.getElementById("dv1").style.display="block";-->
-<!--        document.getElementById("dv2").style.display="block";-->
-<!--        document.getElementById("dv3").style.display="block";-->
-<!--        document.getElementById("dv4").style.display="none";-->
-<!--        document.getElementById("dv5").style.display="none";-->
-<!--        break;-->
-<!--      case "3":-->
-<!--        // "Room":-->
-<!--        document.getElementById("dv1").style.display="none";-->
-<!--        document.getElementById("dv2").style.display="none";-->
-<!--        document.getElementById("dv3").style.display="none";-->
-<!--        document.getElementById("dv4").style.display="none";-->
-<!--        document.getElementById("dv5").style.display="block";-->
-<!--        break;-->
-<!--    }-->
-<!--  }-->
-<!--</script>-->
+<app-footer></app-footer>
