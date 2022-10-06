@@ -8,26 +8,30 @@
   </h3>
 </div>
 
-<!--  <form class="mb-3" style="position: relative" [formGroup]="searchForm" (ngSubmit)="searchCustomer()">-->
-<!--    <div class="row">-->
-<!--      <div class="col-3">-->
-<!--        <input class="form-control me-2" type="search" placeholder="Tên Khách Hàng" aria-label="Search" formControlName="nameSearch" style="border-bottom-color: unset;">-->
-<!--      </div>-->
-<!--      <div class="col-3">-->
-<!--        <input class="form-control me-2" type="search" placeholder="Số chứng minh" aria-label="Search" formControlName="searchIdCard" style="border-bottom-color: unset;">-->
-<!--      </div>-->
-<!--      <div class="col-2">-->
-<!--        <button class="btn btn-outline-primary" type="submit">Tìm Kiếm</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </form>-->
+<div class="container">
+  <form class="mb-3" style="position: relative" [formGroup]="searchForm" (ngSubmit)="searchCustomer()">
+    <div class="row">
+      <div class="col-3">
+        <input class="form-control me-2" type="search" placeholder="Nhập Tên Khách Hàng" aria-label="Search"
+               formControlName="nameSearch">
+      </div>
+      <div class="col-3">
+        <input class="form-control me-2" type="search" placeholder="Nhập Số CMND" aria-label="Search"
+               formControlName="searchIdCard">
+      </div>
+      <div class="col-2">
+        <button class="btn btn-outline-primary" type="submit">Tìm Kiếm</button>
+      </div>
+    </div>
+  </form>
+</div>
 
 <div class="container ">
   <div class="row">
     <table class="table table-striped text-center">
       <thead>
       <tr>
-        <th>Mã Khách Hàng</th>
+        <th>STT</th>
         <th>Loại khách</th>
         <th>Họ tên</th>
         <th>Ngày sinh</th>
@@ -42,7 +46,7 @@
       <tr *ngFor="let customer of customers | paginate: { itemsPerPage: 1, currentPage: p }; index as i">
         <td>{{i + 1}}</td>
         <td>{{customer.customerType.customerTypeName}}</td>
-        <td>{{customer.customerName}}</td>
+        <td data-bs-toggle="modal" (click)="getDetailModal(customer)" data-bs-target="#detail">{{customer.customerName}}</td>
         <td>{{customer.dayOfBirth}}</td>
         <td>{{customer.idCard}}</td>
         <td>{{customer.customerPhone}}</td>
@@ -66,26 +70,52 @@
 
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
-<!--    Start Delete modal-->
-      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <input hidden type="text" name="customerId" id="deleteId">
-              Bạn có muốn xóa khách hàng <span style="font-weight: bold; color: red">{{deleteName}}</span> không ?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-              <button type="button" class="btn btn-primary" (click)="delete(deleteId)" data-bs-dismiss="modal">Xoá</button>
-            </div>
+    <!--    Start Delete modal-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input hidden type="text" name="customerId" id="deleteId">
+            Bạn có muốn xóa khách hàng <span style="font-weight: bold; color: red">{{deleteName}}</span> không ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary" (click)="delete(deleteId)" data-bs-dismiss="modal">Xoá
+            </button>
           </div>
         </div>
       </div>
-<!--    End Delete modal-->
+    </div>
+    <!--    End Delete modal-->
+
+    <!-- Start Modal Detail-->
+    <div class="modal fade " id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header  text-center">
+            <h3 class="modal-title text-danger text-center " id="exampleModalLabel1">Chi tiết khách hàng</h3>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3 ">
+              <div>Tên khách hàng : {{customerDetail.customerName}}</div>
+              <div>Ngày sinh : {{customerDetail.dayOfBirth}}</div>
+              <div>Số CMND : {{customerDetail.idCard}}</div>
+              <div>Số điện thoại : {{customerDetail.customerPhone}}</div>
+              <div>Email : {{customerDetail.customerEmail}}</div>
+              <div>Địa chỉ : {{customerDetail.customerAddress}}</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-bs-dismiss="modal">Đóng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Modal Detail-->
 
   </div>
 </div>

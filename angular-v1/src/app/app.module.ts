@@ -11,6 +11,15 @@ import { CategoryCreateComponent } from './angular-product-management/category/c
 import { CategoryEditComponent } from './angular-product-management/category/category-edit/category-edit.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { CreateCustomerComponent } from './test-angular/customer/create-customer/create-customer.component';
+import { DisplayCustomerComponent } from './test-angular/customer/display-customer/display-customer.component';
+import { EditCustomerComponent } from './test-angular/customer/edit-customer/edit-customer.component';
+import { HeaderComponent } from './local-web/header/header.component';
+import { FooterComponent } from './local-web/footer/footer.component';
+import { HomePageComponent } from './local-web/home-page/home-page.component';
+import { EditCarComponent } from './quan-ly-ben-xe-khach/car/edit-car/edit-car.component';
+import { DisplayCarComponent } from './quan-ly-ben-xe-khach/car/display-car/display-car.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +29,22 @@ import {HttpClientModule} from '@angular/common/http';
     ProductEditComponent,
     CategoryListComponent,
     CategoryCreateComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
+    CreateCustomerComponent,
+    DisplayCustomerComponent,
+    EditCustomerComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomePageComponent,
+    EditCarComponent,
+    DisplayCarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

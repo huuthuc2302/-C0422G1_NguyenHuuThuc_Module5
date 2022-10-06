@@ -119,5 +119,105 @@
         "name": "House"
       }
     }
+  ],
+  "cars": [
+    {
+      "id": 1,
+      "garageName": "Mai Linh",
+      "garagePhone": "0936363637",
+      "garageEmail": "mailinh@gmail.com",
+      "carCompany": {
+        "id": 1,
+        "licensePlates": "1231",
+        "carType": "Giường nằm 34 chỗ",
+        "departurePoint": "Đà Nẵng",
+        "destination": "Hà Nội",
+        "startTime": "07:00",
+        "hourEnds": "16:00"
+      }
+    },
+    {
+      "id": 2,
+      "garageName": "Hoàng Long",
+      "garagePhone": "0925252525",
+      "garageEmail": "hoanglong@gmail.com",
+      "carCompany": {
+        "id": 2,
+        "licensePlates": "5678",
+        "carType": "Giường nằm 20 chỗ",
+        "departurePoint": "Đà Nẵng",
+        "destination": "Quảng Bình",
+        "startTime": "08:00",
+        "hourEnds": "18:00"
+      }
+    },
+    {
+      "id": 3,
+      "garageName": "Mai Linh",
+      "garagePhone": "0936363637",
+      "garageEmail": "mailinh@gmail.com",
+      "carCompany": {
+        "id": 3,
+        "licensePlates": "1231",
+        "carType": "Giường nằm 34 chỗ",
+        "departurePoint": "Nha Trang",
+        "destination": "Thanh Hoá",
+        "startTime": "09:00",
+        "hourEnds": "15:00"
+      }
+    },
+    {
+      "id": 4,
+      "garageName": "Hoàng Long",
+      "garagePhone": "0925252525",
+      "garageEmail": "hoanglong@gmail.com",
+      "carCompany": {
+        "id": 4,
+        "licensePlates": "5678",
+        "carType": "Giường nằm 20 chỗ",
+        "departurePoint": "Quảng Bình",
+        "destination": "Đà Lạt",
+        "startTime": "07:00",
+        "hourEnds": "16:00"
+      }
+    }
+  ],
+  "carCompanys": [
+    {
+      "id": 1,
+      "licensePlates": "1234",
+      "carType": "Giường nằm 20 chỗ",
+      "departurePoint": "Đà Nẵng",
+      "destination": "Hà Nội",
+      "startTime": "07:00",
+      "hourEnds": "15:00"
+    },
+    {
+      "id": 2,
+      "licensePlates": "5678",
+      "carType": "Ghế ngồi 30 chỗ",
+      "departurePoint": "Hà Nội",
+      "destination": "Đà Nẵng",
+      "startTime": "08:00",
+      "hourEnds": "16:00"
+    },
+    {
+      "id": 3,
+      "licensePlates": "6789",
+      "carType": "Giường nằm 34 chỗ",
+      "departurePoint": "Nha Trang",
+      "destination": "Thanh Hoá",
+      "startTime": "09:00",
+      "hourEnds": "17:00"
+    },
+    {
+      "id": 4,
+      "licensePlates": "2345",
+      "carType": "Ghế ngồi 45 chỗ",
+      "departurePoint": "Quảng Bình",
+      "destination": "Đà Lạt",
+      "startTime": "10:00",
+      "hourEnds": "18:00"
+    }
   ]
 }

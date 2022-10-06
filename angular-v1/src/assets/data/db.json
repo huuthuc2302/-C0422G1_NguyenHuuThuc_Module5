@@ -1,24 +1,14 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "IPhone 11",
-      "price": 8000000,
-      "description": "New",
-      "category": {
-        "id": 2,
-        "name": "Apple"
-      }
-    },
-    {
-      "id": 2,
       "name": "IPhone 12 Promax",
-      "price": 22000000,
+      "price": 23000000,
       "description": "New",
       "category": {
         "id": 2,
         "name": "Apple"
-      }
+      },
+      "id": 2
     },
     {
       "id": 3,
@@ -29,6 +19,26 @@
         "id": 2,
         "name": "Apple"
       }
+    },
+    {
+      "id": 4,
+      "name": "Iphone 14 Plus",
+      "price": 25000000,
+      "description": "New",
+      "category": {
+        "id": 2,
+        "name": "Apple"
+      }
+    },
+    {
+      "name": "Iphone 5s",
+      "price": 1000000,
+      "description": "98%",
+      "category": {
+        "id": 2,
+        "name": "Apple"
+      },
+      "id": 5
     }
   ],
   "category": [
@@ -43,6 +53,170 @@
     {
       "id": 3,
       "name": "Xiaomi"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "customerName": "Nguyễn Hữu Thức",
+      "dayOfBirth": "05-01-1996",
+      "idCard": "201757575",
+      "customerPhone": "0936363636",
+      "customerEmail": "thuc@gmail.com",
+      "customerAddress": "147 Lê Đình Lý",
+      "customerType": {
+        "id": 1,
+        "customerTypeName": "Platinum"
+      }
+    },
+    {
+      "customerName": "TuấnNC",
+      "dayOfBirth": "1995-01-01",
+      "idCard": "201656565",
+      "customerPhone": "0343434343",
+      "customerEmail": "tuannc@gmail.com",
+      "customerAddress": "01 Ngô Thị Nhậm",
+      "customerType": {
+        "id": 2,
+        "customerTypeName": "Gold"
+      },
+      "id": 3
+    },
+    {
+      "customerName": "VinhVN",
+      "dayOfBirth": "1998-01-01",
+      "idCard": "202454545",
+      "customerPhone": "0955686868",
+      "customerEmail": "nhuvinh@gmail.com",
+      "customerAddress": "143 Phạm Như Xương",
+      "customerType": {
+        "id": 1,
+        "customerTypeName": "Platinum"
+      },
+      "id": 4
+    },
+    {
+      "customerName": "Trang",
+      "dayOfBirth": "1996-01-01",
+      "idCard": "230456789",
+      "customerPhone": "0955555555",
+      "customerEmail": "trang@gmail.com",
+      "customerAddress": "02 Nguyễn Văn Linh",
+      "customerType": {
+        "id": 2,
+        "customerTypeName": "Gold"
+      },
+      "id": 5
+    }
+  ],
+  "customerTypes": [
+    {
+      "id": 1,
+      "customerTypeName": "Platinum"
+    },
+    {
+      "id": 2,
+      "customerTypeName": "Gold"
+    },
+    {
+      "id": 3,
+      "customerTypeName": "Silver"
+    },
+    {
+      "id": 4,
+      "customerTypeName": "Member"
+    }
+  ],
+  "cars": [
+    {
+      "id": 1,
+      "bienSoXe": "1231",
+      "loaiXe": "Giường nằm",
+      "tenNhaXe": "Mai Linh",
+      "diemDi": "Đà Nẵng",
+      "diemDen": {
+        "id": 4,
+        "diaDiem": "Hà Nội"
+      },
+      "soDienThoaiNhaXe": "0936363637",
+      "emailNhaXe": "mailinh@gmail.com",
+      "gioDi": "13:20",
+      "gioDen": "15:00"
+    },
+    {
+      "id": 2,
+      "bienSoXe": "1222",
+      "loaiXe": "Ghế ngồi",
+      "tenNhaXe": "Hoàng Long",
+      "diemDi": "Đà Nẵng",
+      "diemDen": {
+        "id": 2,
+        "diaDiem": "Quảng Bình"
+      },
+      "soDienThoaiNhaXe": "0925252525",
+      "emailNhaXe": "hoanglong@gmail.com",
+      "gioDi": "10:20",
+      "gioDen": "13:00"
+    },
+    {
+      "id": 5,
+      "bienSoXe": "7777",
+      "loaiXe": "Giường nằm",
+      "tenNhaXe": "Mai Linh",
+      "diemDi": "Đà Nẵng",
+      "diemDen": {
+        "id": 5,
+        "diaDiem": "Thanh Hoá"
+      },
+      "soDienThoaiNhaXe": "0936363636",
+      "emailNhaXe": "mailinh@gmail.com",
+      "gioDi": "20:20",
+      "gioDen": "09:00"
+    },
+    {
+      "id": 6,
+      "bienSoXe": "9999",
+      "loaiXe": "Ghế ngồi",
+      "tenNhaXe": "Phương Trang",
+      "diemDi": "Đà Nẵng",
+      "diemDen": {
+        "id": 6,
+        "diaDiem": "Nha Trang"
+      },
+      "soDienThoaiNhaXe": "0912121212",
+      "emailNhaXe": "phuongtrang@gmail.com",
+      "gioDi": "13:20",
+      "gioDen": "23:00"
+    }
+  ],
+  "diemDens": [
+    {
+      "id": 1,
+      "diaDiem": "Quảng Trị"
+    },
+    {
+      "id": 2,
+      "diaDiem": "Quảng Bình"
+    },
+    {
+      "id": 3,
+      "diaDiem": "Huế"
+    },
+    {
+      "id": 4,
+      "diaDiem": "Hà Nội"
+    },
+    {
+      "id": 5,
+      "diaDiem": "Thanh Hoá"
+    },
+    {
+      "id": 6,
+      "diaDiem": "Nha Trang"
+    },
+    {
+      "id": 7,
+      "diaDiem": "Đà Nẵng"
     }
   ]
 }

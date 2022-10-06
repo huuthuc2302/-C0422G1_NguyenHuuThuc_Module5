@@ -3,7 +3,7 @@ import {Customer} from "../../model/customer";
 import {CustomerService} from "../../service/customer.service";
 import {Router} from "@angular/router";
 import Swal from 'sweetalert2';
-import {FormGroup} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-display-customer',
@@ -17,12 +17,19 @@ export class DisplayCustomerComponent implements OnInit {
   customers: Customer[] = [];
   p: number = 1;
   searchForm: FormGroup;
+  customerDetail: Customer = {};
+
   constructor(private customerService: CustomerService,
               private route: Router) {
   }
 
   ngOnInit(): void {
     this.getAllCustomer();
+    this.searchForm = new FormGroup({
+      nameSearch: new FormControl(''),
+      searchIdCard: new FormControl('')
+    });
+    this.searchForm.patchValue({customerTypeId: 0});
   }
 
 
@@ -51,6 +58,10 @@ export class DisplayCustomerComponent implements OnInit {
     }, error => {
     }, () => {
     })
+  }
+
+  getDetailModal(customers: Customer) {
+    this.customerDetail = customers;
   }
 
 }

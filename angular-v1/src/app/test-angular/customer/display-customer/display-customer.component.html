@@ -1,0 +1,118 @@
+<app-header></app-header>
+<div align="center">
+  <h1>DANH SÁCH KHÁCH HÀNG</h1>
+  <h3>
+    <button type="button" class="btn btn-outline-primary" routerLink="/customer/api/add">
+      Thêm mới khách hàng
+    </button>
+  </h3>
+</div>
+
+<div class="container ">
+  <div class="row">
+    <table class="table table-striped text-center">
+      <thead>
+      <tr>
+        <th>STT</th>
+        <th>Loại khách</th>
+        <th>Họ tên</th>
+        <th>Ngày sinh</th>
+        <th>Giới tính</th>
+        <th>Số CMND</th>
+        <th>Số Điện Thoại</th>
+        <th>Email</th>
+        <th>Địa chỉ</th>
+        <th colspan="2">Chức năng</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let customer of customerList, index as i">
+        <td>{{i + 1}}</td>
+        <td>{{customer.customerType.name}}</td>
+        <td data-bs-toggle="modal" (click)="getDetailModal(customer)" data-bs-target="#detail">{{customer.name}}</td>
+        <td>{{customer.dayOfBirth | date: 'dd-MM-yyyy'}}</td>
+        <td *ngIf="customer.gender == true">Nam</td>
+        <td *ngIf="customer.gender == false">Nữ</td>
+        <td>{{customer.idCard}}</td>
+        <td>{{customer.phoneNumber}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.address}}</td>
+        <td>
+          <a routerLink="/customer/api/update/{{customer.id}}" type="button" class="btn btn-primary">
+            Sửa
+          </a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger"
+                  (click)="deleteCustomer(customer)"
+                  data-bs-toggle="modal" data-bs-target="#deleteModal">
+            Xoá
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <a *ngIf="page" class="text-decoration-none" (click)="previous()">
+          <span class="fa fa-angle-left text-primary" style="font-size: 20px">Trước</span>
+        </a>
+        <span class="text-info" style="font-size: 20px">{{page + 1}}/{{totalPage}}</span>
+        <a *ngIf="page != totalPage - 1" (click)="next()" class="text-decoration-none">
+          <span class="fa fa-angle-right text-primary" style="font-size: 20px">Sau</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--    Start Delete modal-->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input hidden type="text" name="customerId" id="deleteId">
+          Bạn có muốn xóa khách hàng <span style="font-weight: bold; color: red">{{deleteName}}</span> không ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary" (click)="delete(deleteId)" data-bs-dismiss="modal">Xoá
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--    End Delete modal-->
+
+  <!-- Start Modal Detail-->
+  <div class="modal fade " id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header  text-center">
+          <h3 class="modal-title text-danger text-center " id="exampleModalLabel1">Chi tiết khách hàng</h3>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3 ">
+            <div>Tên khách hàng : {{customerDetail.name}}</div>
+            <div>Ngày sinh : {{customerDetail.dayOfBirth}}</div>
+            <div>Số CMND : {{customerDetail.idCard}}</div>
+            <div>Số điện thoại : {{customerDetail.phoneNumber}}</div>
+            <div>Email : {{customerDetail.email}}</div>
+            <div>Địa chỉ : {{customerDetail.address}}</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Modal Detail-->
+
+</div>
+<app-footer></app-footer>
+

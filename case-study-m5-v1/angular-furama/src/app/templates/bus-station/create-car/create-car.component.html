@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="container w-50 mt-5 p-2 bg-success" style="border: 1px solid grey; border-radius: 15px">
+  <h3 align="center">THÊM MỚI XE KHÁCH</h3>
+
+  <form class="row g-3 text-center" [formGroup]="carForm" (ngSubmit)="save()">
+
+    <div class="col-md-12">
+      <label class="form-label">Biển Số Xe</label>
+      <input type="text" class="form-control" placeholder="Nhập biển số xe" formControlName="licensePlates">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Loại xe</label>
+      <select class="form-select" aria-label="Default select example" formControlName="carType">
+        <option *ngFor="let carCompany of carCompanys"
+                [ngValue]="carCompany.id">{{carCompany.carType}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Nhà Xe</label>
+      <input type="text" class="form-control" placeholder="Nhập tên nhà xe" formControlName="garageName">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Điểm đi</label>
+      <select class="form-select" aria-label="Default select example" formControlName="destination">
+        <option *ngFor="let carCompany of carCompanys"
+                [ngValue]="carCompany.id">{{carCompany.destination}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Điểm đến</label>
+      <select class="form-select" aria-label="Default select example" formControlName="departurePoint">
+        <option *ngFor="let carCompany of carCompanys"
+                [ngValue]="carCompany.id">{{carCompany.departurePoint}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Số Điện Thoại</label>
+      <input type="date" class="form-control" placeholder="Nhập số điện thoại nhà xe" formControlName="garagePhone">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Email</label>
+      <input type="text" class="form-control" placeholder="Nhập email nhà xe" formControlName="garageEmail">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Giờ đi</label>
+      <select class="form-select" aria-label="Default select example" formControlName="startTime">
+        <option *ngFor="let carCompany of carCompanys"
+                [ngValue]="carCompany.id">{{carCompany.startTime}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Giờ đến</label>
+      <select class="form-select" aria-label="Default select example" formControlName="hourEnds">
+        <option *ngFor="let carCompany of carCompanys"
+                [ngValue]="carCompany.id">{{carCompany.hourEnds}}</option>
+      </select>
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary">Xác nhận</button>
+    </div>
+
+  </form>
+</div>
+<app-footer></app-footer>
+
+

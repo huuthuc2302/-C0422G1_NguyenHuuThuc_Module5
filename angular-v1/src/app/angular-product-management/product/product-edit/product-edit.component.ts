@@ -4,6 +4,7 @@ import {Category} from '../../model/category';
 import {ProductService} from '../../service/product.service';
 import {CategoryService} from '../../service/category.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-edit',
@@ -49,7 +50,7 @@ export class ProductEditComponent implements OnInit {
       category = n;
       product.category = category;
       this.productService.updateProduct(id, product).subscribe(() => {
-        alert('Cập nhật thành công');
+        Swal.fire('Tiêu đề', 'Cập nhật thành công', 'success');
         this.router.navigateByUrl('product/list/new');
       });
     });

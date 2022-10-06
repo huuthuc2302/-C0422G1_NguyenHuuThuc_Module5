@@ -4,6 +4,7 @@ import {Category} from '../../model/category';
 import {ProductService} from '../../service/product.service';
 import {CategoryService} from '../../service/category.service';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-create',
@@ -15,7 +16,8 @@ export class ProductCreateComponent implements OnInit {
   categories: Category[] = [];
 
   constructor(private productService: ProductService,
-              private categoryService: CategoryService, private router: Router) {
+              private categoryService: CategoryService,
+              private router: Router) {
     this.productForm = new FormGroup({
       name: new FormControl(),
       price: new FormControl(),
@@ -41,8 +43,8 @@ export class ProductCreateComponent implements OnInit {
       category = n;
       product.category = category;
       this.productService.saveProduct(product).subscribe(() => {
-        alert('Tạo thành công');
-        this.router.navigateByUrl('product/list/new');
+        Swal.fire('Tiêu đề', 'Tạo mới thành công', 'success');
+        this.router.navigateByUrl('product/list');
       }, e => console.log(e));
     });
 

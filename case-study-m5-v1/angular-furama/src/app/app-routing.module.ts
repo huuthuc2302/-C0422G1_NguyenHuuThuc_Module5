@@ -7,6 +7,9 @@ import {DisplayFacilityComponent} from "./templates/facility/display-facility/di
 import {CreateFacilityComponent} from "./templates/facility/create-facility/create-facility.component";
 import {EditFacilityComponent} from "./templates/facility/edit-facility/edit-facility.component";
 import {HomePageComponent} from "./templates/home-page/home-page.component";
+import {DisplayCarComponent} from "./templates/bus-station/display-car/display-car.component";
+import {CreateCarComponent} from "./templates/bus-station/create-car/create-car.component";
+import {EditCarComponent} from "./templates/bus-station/edit-car/edit-car.component";
 
 const routes: Routes = [
 
@@ -19,6 +22,10 @@ const routes: Routes = [
   {path: 'facility', component: DisplayFacilityComponent},
   {path: 'facility/create', component: CreateFacilityComponent},
   {path: 'facility/update/:id', component: EditFacilityComponent},
+
+  {path: 'car/list', component: DisplayCarComponent},
+  {path: 'car/create', component: CreateCarComponent},
+  {path: 'car/edit/:id', component: EditCarComponent},
 ];
 
 @NgModule({

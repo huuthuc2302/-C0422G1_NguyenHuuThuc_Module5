@@ -1,0 +1,110 @@
+<div class="container w-50 mt-5 p-2 bg-success" style="border: 1px solid grey; border-radius: 15px">
+  <h3 align="center">CHỈNH SỬA KHÁCH HÀNG</h3>
+
+  <form class="row g-3 text-center" [formGroup]="customerForm" (ngSubmit)="updateSubmit(id)" novalidate="novalidate">
+
+    <input type="hidden" formControlName="id">
+
+    <div class="col-md-12">
+      <label class="form-label">Loại khách hàng</label>
+      <select class="form-select" aria-label="Default select example" formControlName="customerType">
+        <option value="">--Chọn loại khách hàng--</option>
+        <option *ngFor="let customerType of customerTypeList"
+                [ngValue]="customerType.id">{{customerType.name}}</option>
+      </select>
+    </div>
+
+    <div>
+      <div class="col-md-12">
+        <label class="form-label">Tên khách hàng</label>
+        <input type="text" class="form-control" formControlName="customerName">
+      </div>
+
+      <div class="text-danger" *ngFor="let validation of validationMessages.name">
+        <div class="error-message"
+             *ngIf="customerUpdateForm.get('name').hasError(validation.type) && (customerUpdateForm.get('name').dirty || customerUpdateForm.get('name').touched)">
+          {{validation.message}}</div>
+      </div>
+    </div>
+
+
+    <div>
+      <div class="col-md-12">
+        <label class="form-label">Ngày sinh</label>
+        <input type="date" class="form-control" formControlName="dayOfBirth">
+      </div>
+
+      <div class="text-danger" *ngFor="let validation of validationMessages.dateOfBirth">
+        <div class="error-message"
+             *ngIf="customerUpdateForm.get('dateOfBirth').hasError(validation.type) && (customerUpdateForm.get('dateOfBirth').dirty || customerUpdateForm.get('dateOfBirth').touched)">
+          {{validation.message}}</div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Giới Tính</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="female" name="gender" formControlName="gender" [value]="false">
+        <label class="form-check-label" for="female">
+          Nữ
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="male" name="gender" formControlName="gender" [value]="true">
+        <label class="form-check-label" for="male">
+          Nam
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <div class="col-md-12">
+        <label class="form-label">Số CMND</label>
+        <input type="text" class="form-control" formControlName="idCard">
+      </div>
+
+      <div class="text-danger" *ngFor="let validation of validationMessages.idCard">
+        <div class="error-message"
+             *ngIf="customerUpdateForm.get('idCard').hasError(validation.type) && (customerUpdateForm.get('idCard').dirty || customerUpdateForm.get('idCard').touched)">
+          {{validation.message}}</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="col-md-12">
+        <label class="form-label">Số Điện Thoại</label>
+        <input type="text" class="form-control" formControlName="phoneNumber">
+      </div>
+
+      <div class="text-danger" *ngFor="let validation of validationMessages.phoneNumber">
+        <div class="error-message"
+             *ngIf="customerUpdateForm.get('phoneNumber').hasError(validation.type) && (customerUpdateForm.get('phoneNumber').dirty || customerUpdateForm.get('phoneNumber').touched)">
+          {{validation.message}}</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="col-md-12">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" formControlName="email">
+      </div>
+
+      <div class="text-danger" *ngFor="let validation of validationMessages.email">
+        <div class="error-message"
+             *ngIf="customerUpdateForm.get('email').hasError(validation.type) && (customerUpdateForm.get('email').dirty || customerUpdateForm.get('email').touched)">
+          {{validation.message}}</div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Địa chỉ</label>
+      <input type="text" class="form-control" formControlName="customerAddress">
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary">Cập nhật</button>
+    </div>
+
+  </form>
+</div>
+

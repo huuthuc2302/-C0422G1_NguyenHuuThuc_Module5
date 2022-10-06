@@ -1,0 +1,103 @@
+<app-header></app-header>
+<div align="center">
+  <h1>DANH SÁCH XE KHÁCH TẠI BẾN</h1>
+  <h3>
+    <button type="button" class="btn btn-outline-primary" routerLink="/car/create">
+      Thêm mới xe khách
+    </button>
+  </h3>
+</div>
+
+<div class="container">
+  <form class="mb-3" style="position: relative" [formGroup]="searchForm" (ngSubmit)="searchCar()">
+    <div class="row">
+      <div class="col-3">
+        <input class="form-control me-2" type="search" placeholder="Nhập Biển Số Xe" aria-label="Search"
+               formControlName="licensePlatesSearch">
+      </div>
+      <div class="col-3">
+        <input class="form-control me-2" type="search" placeholder="Nhập Loại Xe" aria-label="Search"
+               formControlName="carTypeSearch">
+      </div>
+      <div class="col-2">
+        <button class="btn btn-outline-primary" type="submit">Tìm Kiếm</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container ">
+  <div class="row">
+    <table class="table table-striped text-center">
+      <thead>
+      <tr>
+        <th>STT</th>
+        <th>Biển số xe</th>
+        <th>Loại xe</th>
+        <th>Nhà xe</th>
+        <th>Điểm đi</th>
+        <th>Điểm đến</th>
+        <th>Số điện thoại</th>
+        <th>Email</th>
+        <th>Giờ đi</th>
+        <th>Giờ đến</th>
+        <th colspan="2">Chức năng</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let car of cars | paginate: { itemsPerPage: 2, currentPage: p }; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{car.carCompany.licensePlates}}</td>
+        <td>{{car.carCompany.carType}}</td>
+        <td>{{car.garageName}}</td>
+        <td>{{car.carCompany.departurePoint}}</td>
+        <td>{{car.carCompany.destination}}</td>
+        <td>{{car.garagePhone}}</td>
+        <td>{{car.garageEmail}}</td>
+        <td>{{car.carCompany.startTime}}</td>
+        <td>{{car.carCompany.hourEnds}}</td>
+        <td>
+          <a routerLink="/car/edit/{{car.id}}" type="button" class="btn btn-primary">
+            Sửa
+          </a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger"
+                  (click)="deleteCar(car)"
+                  data-bs-toggle="modal" data-bs-target="#deleteModal">
+            Xoá
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    <!--    Start Delete modal-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input hidden type="text" name="customerId" id="deleteId">
+            Bạn có muốn xóa xe khách biển số <span style="font-weight: bold; color: red">{{deleteName}}</span> không ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary" (click)="delete(deleteId)" data-bs-dismiss="modal">Xoá
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    End Delete modal-->
+
+  </div>
+</div>
+<app-footer></app-footer>
+
+

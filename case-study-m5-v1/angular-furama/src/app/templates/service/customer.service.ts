@@ -35,7 +35,7 @@ export class CustomerService {
   }
 
   searchCustomer(nameCustomer: string, idCard: string): Observable<Customer[]> {
-    return this.http.get<Customer[]>(`${API_URL}customers?name_like=${nameCustomer}&idCard_like=${idCard}`);
+    return this.http.get<Customer[]>(`${API_URL}customers?customerName_like=${nameCustomer}&idCard_like=${idCard}`);
   }
 
 }

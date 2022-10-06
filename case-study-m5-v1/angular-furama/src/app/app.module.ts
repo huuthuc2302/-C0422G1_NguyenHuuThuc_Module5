@@ -17,6 +17,9 @@ import { CreateContractComponent } from './templates/contract/create-contract/cr
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from "ngx-pagination";
+import { CreateCarComponent } from './templates/bus-station/create-car/create-car.component';
+import { EditCarComponent } from './templates/bus-station/edit-car/edit-car.component';
+import { DisplayCarComponent } from './templates/bus-station/display-car/display-car.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import {NgxPaginationModule} from "ngx-pagination";
     CreateCustomerComponent,
     EditCustomerComponent,
     DisplayContractComponent,
-    CreateContractComponent
+    CreateContractComponent,
+    CreateCarComponent,
+    EditCarComponent,
+    DisplayCarComponent
   ],
   imports: [
     BrowserModule,

@@ -14,37 +14,39 @@
   </thead>
 
   <tbody>
-  <tr *ngFor="let product of products; index as i">
+  <tr *ngFor="let product of products | paginate: { itemsPerPage: 1, currentPage: p }; index as i">
     <td>{{i + 1}}</td>
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
     <td>{{product.category.name}}</td>
-    <td><a class="btn btn-danger" [routerLink]="['/product/update',product.id]">Edit</a></td>
+    <td><a class="btn btn-danger" [routerLink]="['/product/update',product.id]">Sửa</a></td>
     <td>
       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
               (click)="deleteProduct(product)">
-        delete
+        Xoá
       </button>
     </td>
   </tr>
   </tbody>
 </table>
 
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>You want to delete name : <span style="color: red">{{deleteName}}</span></p>
+        <p>Bạn có muốn xoá sản phẩm : <span style="color: red">{{deleteName}}</span></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="delete(deleteId)" data-bs-dismiss="modal" >Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary" (click)="delete(deleteId)" data-bs-dismiss="modal" >Xoá</button>
       </div>
     </div>
   </div>

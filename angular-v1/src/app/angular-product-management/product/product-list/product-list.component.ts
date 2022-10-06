@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +13,7 @@ export class ProductListComponent implements OnInit {
   deleteId: number;
   deleteName: string;
   products: Product[] = [];
-
+  p = 1;
   constructor(private productService: ProductService,
               private router: Router) {
   }
@@ -35,6 +36,7 @@ export class ProductListComponent implements OnInit {
   delete(idDelete: any) {
     this.productService.deleteProduct(idDelete).subscribe(() => {
       this.getAll();
+      Swal.fire('Tiêu đề', 'Xoá thành công', 'success');
     });
   }
 }

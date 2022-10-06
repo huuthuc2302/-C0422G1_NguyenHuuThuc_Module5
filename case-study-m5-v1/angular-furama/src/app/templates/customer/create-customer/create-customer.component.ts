@@ -57,4 +57,5 @@ export class CreateCustomerComponent implements OnInit {
       id: customer.customerType
     };
   }
+
 }

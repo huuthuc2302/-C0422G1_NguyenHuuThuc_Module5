@@ -1,0 +1,127 @@
+<app-header></app-header>
+<div align="center">
+  <h1>DANH SÁCH XE ĐĂNG KÝ Ở BẾN</h1>
+  <h3>
+    <button type="button" class="btn btn-outline-primary" routerLink="/car/create">
+      Thêm mới xe khách
+    </button>
+  </h3>
+</div>
+
+<!--<div class="container">-->
+<!--  <form class="mb-3" style="position: relative" [formGroup]="searchForm" (ngSubmit)="searchCustomer()">-->
+<!--    <div class="row">-->
+<!--      <div class="col-3">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Nhập Tên Khách Hàng" aria-label="Search"-->
+<!--               formControlName="nameSearch">-->
+<!--      </div>-->
+<!--      <div class="col-3">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Nhập Số CMND" aria-label="Search"-->
+<!--               formControlName="searchIdCard">-->
+<!--      </div>-->
+<!--      <div class="col-2">-->
+<!--        <button class="btn btn-outline-primary" type="submit">Tìm Kiếm</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
+
+<div class="container ">
+  <div class="row">
+    <table class="table table-striped text-center">
+      <thead>
+      <tr>
+        <th>STT</th>
+        <th>Số xe</th>
+        <th>Loại xe</th>
+        <th>Nhà xe</th>
+        <th>Điểm đi</th>
+        <th>Điểm đến</th>
+        <th>Số điện thoại</th>
+        <th>Email</th>
+        <th>Giờ đi</th>
+        <th>Giờ đến</th>
+        <th colspan="2">Chức năng</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let car of cars | paginate: { itemsPerPage: 3, currentPage: p }; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{car.bienSoXe}}</td>
+        <td>{{car.loaiXe}}</td>
+        <td>{{car.tenNhaXe}}</td>
+        <td>{{car.diemDi}}</td>
+        <td>{{car.diemDen.diaDiem}}</td>
+        <td>{{car.soDienThoaiNhaXe}}</td>
+        <td>{{car.emailNhaXe}}</td>
+        <td>{{car.gioDi}}</td>
+        <td>{{car.gioDen}}</td>
+        <td>
+          <a routerLink="/car/edit/{{car.id}}" type="button" class="btn btn-primary">
+            Sửa
+          </a>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger"
+                  (click)="deleteCar(car)"
+                  data-bs-toggle="modal" data-bs-target="#deleteModal">
+            Xoá
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    <!--    Start Delete modal-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cảnh báo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input hidden type="text" name="customerId" id="deleteId">
+            Bạn có muốn xóa xe khách biển số <span style="font-weight: bold; color: red">{{deleteName}}</span> không ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary" (click)="delete(deleteId)" data-bs-dismiss="modal">Xoá
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    End Delete modal-->
+
+    <!-- Start Modal Detail-->
+<!--    <div class="modal fade " id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--      <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--          <div class="modal-header  text-center">-->
+<!--            <h3 class="modal-title text-danger text-center " id="exampleModalLabel1">Chi tiết khách hàng</h3>-->
+<!--          </div>-->
+<!--          <div class="modal-body">-->
+<!--            <div class="mb-3 ">-->
+<!--              <div>Tên khách hàng : {{customerDetail.customerName}}</div>-->
+<!--              <div>Ngày sinh : {{customerDetail.dayOfBirth}}</div>-->
+<!--              <div>Số CMND : {{customerDetail.idCard}}</div>-->
+<!--              <div>Số điện thoại : {{customerDetail.customerPhone}}</div>-->
+<!--              <div>Email : {{customerDetail.customerEmail}}</div>-->
+<!--              <div>Địa chỉ : {{customerDetail.customerAddress}}</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="modal-footer">-->
+<!--            <button type="button" class="btn btn-info" data-bs-dismiss="modal">Đóng</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <!--End Modal Detail-->
+
+  </div>
+</div>
+<app-footer></app-footer>
+

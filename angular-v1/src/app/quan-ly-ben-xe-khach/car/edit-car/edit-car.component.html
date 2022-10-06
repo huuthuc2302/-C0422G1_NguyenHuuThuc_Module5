@@ -1,0 +1,67 @@
+<div class="container w-50 mt-5 p-2 bg-success" style="border: 1px solid grey; border-radius: 15px">
+  <h3 align="center">CHỈNH SỬA XE KHÁCH</h3>
+
+  <form class="row g-3 text-center" [formGroup]="carForm" (ngSubmit)="editCar(id)" novalidate="novalidate">
+
+    <input type="hidden" formControlName="id">
+
+    <div class="col-md-12">
+      <label class="form-label">Số Xe</label>
+      <input type="text" class="form-control" formControlName="bienSoXe">
+
+<!--      <div class="text-danger" *ngFor="let validation of validationMessages.name">-->
+<!--        <div class="error-message"-->
+<!--             *ngIf="carForm.get('name').hasError(validation.type) && (carForm.get('name').dirty || carForm.get('name').touched)">-->
+<!--          {{validation.message}}</div>-->
+<!--      </div>-->
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Loại Xe</label>
+      <input type="text" class="form-control" formControlName="loaiXe">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Tên nhà xe</label>
+      <input type="text" class="form-control" formControlName="tenNhaXe">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Điểm đi</label>
+      <input type="text" class="form-control" formControlName="diemDi">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Điểm đến</label>
+      <select class="form-select" aria-label="Default select example" formControlName="diemDen">
+        <option  *ngFor="let diemDen of diemDens" [ngValue]="diemDen.id">{{diemDen.diaDiem}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Số Điện Thoại</label>
+      <input type="text" class="form-control" formControlName="soDienThoaiNhaXe">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Email</label>
+      <input type="text" class="form-control" formControlName="emailNhaXe">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Giờ đi</label>
+      <input type="text" class="form-control" formControlName="gioDi">
+    </div>
+
+    <div class="col-md-12">
+      <label class="form-label">Giờ đến</label>
+      <input type="text" class="form-control" formControlName="gioDen">
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary">Cập nhật</button>
+    </div>
+
+  </form>
+</div>
+
